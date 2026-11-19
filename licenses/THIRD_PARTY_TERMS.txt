@@ -1,0 +1,25 @@
+RAMVI — условия для сторонних компонентов / terms for third-party components
+
+Лицензия MIT (файл LICENSE) относится только к коду RAMVI. Сторонние компоненты комплекта
+распространяются на своих условиях; их тексты — в этой папке.
+The MIT license (LICENSE) covers RAMVI code only. Third-party components keep their own terms.
+
+NVIDIA CUDA и cuDNN (runtime/python/Lib/site-packages/torch/lib, triton/backends/nvidia)
+  Условия: NVIDIA CUDA Toolkit EULA v13.2 (Last updated: January 26, 2026), Attachment A — https://docs.nvidia.com/cuda/archive/13.2.0/eula/index.html
+           NVIDIA SDK License Agreement + cuDNN Supplement (v. February 22, 2022) — https://docs.nvidia.com/deeplearning/cudnn/latest/reference/eula.html
+  Эти файлы принадлежат NVIDIA Corporation и её лицензиарам, поставляются в объектном коде,
+  без изменений, только как часть RAMVI и только для работы RAMVI в системах с GPU NVIDIA.
+  Запрещено: отдельно распространять, изменять, декомпилировать и разбирать их, обходить
+  защиту, удалять уведомления об авторских правах.
+  These files are owned by NVIDIA Corporation and its licensors, provided in object code,
+  unmodified, only as part of RAMVI and only for use by RAMVI on systems with NVIDIA GPUs.
+  You may not redistribute them separately, modify, decompile or reverse engineer them,
+  circumvent their security, or remove copyright notices.
+
+Microsoft Visual C++ Runtime (runtime/python/*.dll из каталога VC\Redist Visual Studio)
+  Условия: лицензия Visual Studio, раздел «Distributable Code» —
+           https://visualstudio.microsoft.com/license-terms/
+  Файлы принадлежат Microsoft Corporation, поставляются без изменений и только как часть
+  RAMVI. Запрещено: отдельно распространять, изменять, декомпилировать и разбирать их.
+  Owned by Microsoft Corporation; provided unmodified and only as part of RAMVI. You may not
+  redistribute them separately, modify, decompile or reverse engineer them.

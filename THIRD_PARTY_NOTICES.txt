@@ -1,0 +1,71 @@
+RAMVI — сторонние компоненты и их лицензии
+Third-party components of the RAMVI portable bundle and their licenses
+
+RAMVI: MIT (файл LICENSE рядом). Тексты лицензий — папка licenses/.
+
+Не из pip / not from pip:
+- Python (встроенный, python.org): PSF-2.0 — runtime/python/LICENSE.txt
+- Microsoft Visual C++ Runtime (DLL рядом с python.exe, из VC\Redist Visual Studio): лицензия Visual Studio, Distributable Code — условия в licenses/THIRD_PARTY_TERMS.txt — https://visualstudio.microsoft.com/license-terms/
+- NVIDIA CUDA 13.2 и cuDNN 9 (torch/lib, triton/backends/nvidia): NVIDIA CUDA Toolkit EULA v13.2 (Last updated: January 26, 2026), Attachment A; NVIDIA SDK License Agreement + cuDNN Supplement (v. February 22, 2022) — условия в licenses/THIRD_PARTY_TERMS.txt — https://docs.nvidia.com/cuda/archive/13.2.0/eula/index.html
+- .NET, Avalonia, SkiaSharp, HarfBuzzSharp (оболочка RAMVI.exe): MIT — https://avaloniaui.net/
+- Токенизатор Qwen3-8B (runtime/tokenizers): Apache-2.0 — https://huggingface.co/Qwen/Qwen3-8B
+
+Пакеты Python (runtime/python/Lib/site-packages) / Python packages:
+- annotated-doc 0.0.5: MIT — annotated_doc-0.0.5.dist-info/licenses/LICENSE
+- annotated-types 0.8.0: MIT — annotated_types-0.8.0.dist-info/licenses/LICENSE
+- anyio 4.16.0: MIT — anyio-4.16.0.dist-info/licenses/LICENSE
+- apache-tvm-ffi 0.1.16: Apache 2.0 — apache_tvm_ffi-0.1.16.dist-info/licenses/LICENSE (+2)
+- attrs 26.1.0: MIT — attrs-26.1.0.dist-info/licenses/LICENSE
+- certifi 2026.10.23: MPL-2.0 — certifi-2026.10.23.dist-info/licenses/LICENSE
+- cffi 2.1.1: MIT-0 — cffi-2.1.1.dist-info/licenses/LICENSE
+- charset-normalizer 3.5.2: MIT — charset_normalizer-3.5.2.dist-info/licenses/LICENSE
+- click 8.5.0: BSD-3-Clause — click-8.5.0.dist-info/licenses/LICENSE.txt
+- colorama 0.4.6: BSD License — colorama-0.4.6.dist-info/licenses/LICENSE.txt
+- filelock 4.2.4: MIT — filelock-4.2.4.dist-info/licenses/LICENSE
+- fsspec 2026.9.0: BSD-3-Clause — fsspec-2026.9.0.dist-info/licenses/LICENSE
+- h11 0.16.0: MIT — h11-0.16.0.dist-info/licenses/LICENSE.txt
+- hf-xet 1.8.0: Apache-2.0 — hf_xet-1.8.0.dist-info/licenses/LICENSE
+- httpcore2 2.16.0: BSD-3-Clause — httpcore2-2.16.0.dist-info/licenses/LICENSE.md
+- httpx2 2.16.0: BSD-3-Clause — httpx2-2.16.0.dist-info/licenses/LICENSE.md
+- huggingface_hub 2.4.0: Apache-2.0 — huggingface_hub-2.4.0.dist-info/licenses/LICENSE
+- idna 3.20: BSD-3-Clause — idna-3.20.dist-info/licenses/LICENSE.md
+- Jinja2 3.1.6: BSD License — jinja2-3.1.6.dist-info/licenses/LICENSE.txt
+- jsonschema 4.26.0: MIT — jsonschema-4.26.0.dist-info/licenses/COPYING
+- jsonschema-specifications 2025.9.1: MIT — jsonschema_specifications-2025.9.1.dist-info/licenses/COPYING
+- llvmlite 0.50.0: BSD-2-Clause AND Apache-2.0 WITH LLVM-exception — llvmlite-0.50.0.dist-info/licenses/LICENSE (+1)
+- markdown-it-py 4.2.0: MIT License — markdown_it_py-4.2.0.dist-info/licenses/LICENSE (+1)
+- MarkupSafe 3.0.3: BSD-3-Clause — markupsafe-3.0.3.dist-info/licenses/LICENSE.txt
+- mdurl 0.1.2: MIT License — mdurl-0.1.2.dist-info/LICENSE
+- mpmath 1.3.0: BSD — mpmath-1.3.0.dist-info/LICENSE
+- networkx 3.7: BSD-3-Clause — networkx-3.7.dist-info/licenses/LICENSE.txt
+- numba 0.68.1: BSD — numba-0.68.1.dist-info/licenses/LICENSE (+1)
+- numpy 2.5.4: BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0 — numpy-2.5.4.dist-info/licenses/LICENSE.txt (+19)
+- packaging 26.3: Apache-2.0 OR BSD-2-Clause — packaging-26.3.dist-info/licenses/LICENSE (+2)
+- platformdirs 4.14.7: MIT — platformdirs-4.14.7.dist-info/licenses/LICENSE
+- pycparser 3.12: BSD-3-Clause — pycparser-3.12.dist-info/licenses/LICENSE
+- pydantic 2.14.3: MIT — pydantic-2.14.3.dist-info/licenses/LICENSE
+- pydantic_core 2.50.4: MIT — pydantic_core-2.50.4.dist-info/licenses/LICENSE
+- Pygments 2.21.0: BSD-2-Clause — pygments-2.21.0.dist-info/licenses/LICENSE
+- pywhispercpp 1.5.1: MIT — pywhispercpp-1.5.1.dist-info/licenses/LICENSE
+- PyYAML 6.0.3: MIT — pyyaml-6.0.3.dist-info/licenses/LICENSE
+- referencing 0.37.0: MIT — referencing-0.37.0.dist-info/licenses/COPYING
+- regex 2026.9.29: Apache-2.0 AND CNRI-Python — regex-2026.9.29.dist-info/licenses/LICENSE.txt
+- requests 2.34.2: Apache-2.0 — requests-2.34.2.dist-info/licenses/LICENSE (+1)
+- rich 15.0.0: MIT — rich-15.0.0.dist-info/licenses/LICENSE
+- rpds-py 2026.9.1: MIT — rpds_py-2026.9.1.dist-info/licenses/LICENSE
+- safetensors 0.8.0: Apache Software License — safetensors-0.8.0.dist-info/licenses/LICENSE
+- setuptools 78.1.0: MIT License — setuptools-78.1.0.dist-info/licenses/LICENSE (+23)
+- shellingham 1.5.4: ISC License — shellingham-1.5.4.dist-info/LICENSE
+- sounddevice 0.5.6: MIT — sounddevice-0.5.6.dist-info/licenses/LICENSE
+- sympy 1.14.0: BSD — sympy-1.14.0.dist-info/licenses/LICENSE (+1)
+- tokenizers 0.23.3: Apache Software License — —
+- torch 2.15.0+cu132: Apache-2.0 AND Apache-2.0 WITH LLVM-exception AND BSD-2-Clause AND BSD-3-Clause AND BSL-1.0 AND ISC AND MIT AND Zlib — torch-2.15.0+cu132.dist-info/licenses/LICENSE (+64)
+- tqdm 4.70.1: MPL-2.0 AND MIT — tqdm-4.70.1.dist-info/licenses/LICENCE
+- transformers 5.22.1: Apache 2.0 License — transformers-5.22.1.dist-info/licenses/LICENSE
+- triton-windows 3.9.0.post30: MIT — triton_windows-3.9.0.post30.dist-info/licenses/LICENSE
+- truststore 0.10.5: MIT — truststore-0.10.5.dist-info/licenses/LICENSE
+- typer 0.27.3: MIT — typer-0.27.3.dist-info/licenses/LICENSE (+1)
+- typing_extensions 4.16.0: PSF-2.0 — typing_extensions-4.16.0.dist-info/licenses/LICENSE
+- typing-inspection 0.4.5: MIT — typing_inspection-0.4.5.dist-info/licenses/LICENSE
+- urllib3 2.8.0: MIT — urllib3-2.8.0.dist-info/licenses/LICENSE.txt
+- xgrammar 0.2.9: Apache 2.0 — xgrammar-0.2.9.dist-info/licenses/LICENSE (+1)
