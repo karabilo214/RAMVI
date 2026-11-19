@@ -12,6 +12,18 @@
 
 ---
 
+## Как это выглядит
+
+| Чат с моделью: видно, как она рассуждает | Агент ждёт вашего решения по правке (diff) |
+|---|---|
+| ![Чат](docs/screenshots/chat.png) | ![Агент](docs/screenshots/agent.png) |
+
+| Голосовой ввод: запись по кнопке или Ctrl+M |
+|---|
+| ![Голос](docs/screenshots/voice.png) |
+
+<sub>Агент — снимок настоящего окна на Windows (модель qwen3-8b). Чат и голос — тот же интерфейс, отрисованный автотестами оболочки с тестовым текстом.</sub>
+
 ## Что умеет
 
 - 💬 **Чат с языковой моделью**: Qwen3 и другие поддерживаемые модели в формате GGUF. Видно, как модель рассуждает. Если модель больше видеопамяти, часть слоёв работает из оперативной памяти.
@@ -34,6 +46,21 @@
 
 Если драйвера нет или он старый, RAMVI при запуске скажет, что установить.
 
+## Скорость: замеры, а не обещание
+
+Ноутбук с RTX 5060 Laptop (8 ГБ видеопамяти) и 16 ГБ RAM, Windows 11.
+
+| Случай | RAMVI | Ollama | Кто быстрее |
+|---|---:|---:|---|
+| **Модель больше видеопамяти:** Qwen3-14B Q4_K_M (9,3 ГБ) с моделью-предсказателем Qwen3-0.6B. Часть слоёв в видеопамяти, остальное в RAM | **8,7–9,1** ток/с | 6,27 ток/с | RAMVI, ≈1,4× |
+| **Модель целиком в видеопамяти:** Qwen3-8B Q4_K_M | 32,8 ток/с | **52,2** ток/с | Ollama, ≈1,6× |
+
+Как мерили 14B: 30 вопросов разных типов (факты, код, математика, перевод, творчество и др.), до 200 токенов на ответ, температура 0, контекст 2048, размышления выключены, по два прогона; тексты ответов между прогонами совпали 30/30. Для Ollama взят более ранний замер на том же наборе и том же ноутбуке; на текущей версии Ollama его не повторяли.
+
+Честно об ограничениях:
+- Выигрыш зависит от типа текста: на коде, математике и JSON он больше, а на творческих запросах RAMVI с 14B даёт 3,5–5,3 ток/с — предсказатель хуже угадывает такой текст.
+- Когда модель целиком помещается в видеопамять, Ollama сейчас быстрее. Причина известна: в этом случае предсказатель мешает (без него RAMVI даёт на 8B 39–42 ток/с).
+
 ## Установка и первый запуск
 
 1. Скачайте `RAMVI-<версия>-win-x64.zip` со страницы [Releases](https://github.com/karabilo214/RAMVI/releases/latest).
@@ -46,6 +73,10 @@
 ## Обновления
 
 Обновления подписаны ключом выпуска (Ed25519). Неподписанный или изменённый пакет не установится. Если новая версия не запустится, RAMVI сам вернётся к прежней. Чаты, модели и настройки обновление не трогает.
+
+## Исходный код
+
+Исходный код RAMVI открыт по лицензии MIT: [github.com/karabilo214/AI](https://github.com/karabilo214/AI), папка [ramvi](https://github.com/karabilo214/AI/tree/main/ramvi) — сервис, движок, оболочка, тесты и отчёты проверок. В этом репозитории — готовые сборки, описание и лицензии.
 
 ## Состав и лицензии
 
@@ -74,5 +105,9 @@ Get-FileHash .\RAMVI-0.8.0-win-x64.zip -Algorithm SHA256
 **Requirements:** Windows 10/11 x64, an **NVIDIA GPU** with a driver that supports **CUDA 13.2 or newer** ([GeForce drivers](https://www.nvidia.com/drivers)), RAM ≥ 16 GB, SSD/HDD/NVMe ≥ 3.3 GB.
 
 **Getting started:** download the ZIP from [Releases](https://github.com/karabilo214/RAMVI/releases/latest), unzip it anywhere (a disk or a USB stick) and run `RAMVI.exe`. No models are included: the app downloads the model and the small draft model itself.
+
+**Speed (measured, not promised):** on an RTX 5060 Laptop (8 GB) with 16 GB RAM, Qwen3-14B Q4_K_M (larger than VRAM) with a Qwen3-0.6B draft model runs at 8.7–9.1 tok/s in RAMVI vs 6.27 in Ollama (30 mixed prompts, ≤200 tokens, temperature 0). With Qwen3-8B fully in VRAM, Ollama is faster today: 52.2 vs 32.8 tok/s.
+
+**Source code:** open under MIT at [github.com/karabilo214/AI](https://github.com/karabilo214/AI) (folder `ramvi`); this repository holds release builds, docs and licenses.
 
 **Licenses:** RAMVI is [MIT](LICENSE)-licensed; third-party components keep their own terms. See [LICENSES.md](LICENSES.md) for links to every license text.
