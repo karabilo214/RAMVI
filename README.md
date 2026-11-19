@@ -26,7 +26,7 @@
 
 ## Что умеет
 
-- 💬 **Чат с языковой моделью**: Qwen3 и другие поддерживаемые модели в формате GGUF. Видно, как модель рассуждает. Если модель больше видеопамяти, часть слоёв работает из оперативной памяти.
+- 💬 **Чат с языковой моделью**: модели семейства **Qwen3** (GGUF, от 0.6B до 32B и Qwen3-30B-A3B) из встроенного каталога Hugging Face/Ollama или своим файлом. Видно, как модель рассуждает. Если модель больше видеопамяти, часть слоёв работает из оперативной памяти. Другие архитектуры (Llama, Gemma, Mistral, DeepSeek) пока не поддерживаются — они в планах.
 - 🎙 **Голосовой ввод**: русский, английский, украинский. Распознавание работает на этом компьютере, микрофон включается только по кнопке или Ctrl+M.
 - 🛠 **Агент для файлов**: читает, ищет и правит файлы только в той папке, которую вы выбрали. Каждое изменение показывается как diff, и применяется только после вашего подтверждения.
 - 🔌 **API для своих программ**: совместим с OpenAI, Anthropic и Ollama, по умолчанию доступен только на этом компьютере. Ключи для каждого клиента отдельные, счётчики токенов тоже.
@@ -99,7 +99,7 @@ Get-FileHash .\RAMVI-0.8.0-win-x64.zip -Algorithm SHA256
 
 **RAMVI is your personal AI platform for Windows.** No mandatory cloud. No subscription. No telemetry. Your AI, under your control.
 
-- Chat with Qwen3 and other supported GGUF models, including models larger than your GPU memory (hybrid GPU+RAM).
+- Chat with **Qwen3** family models (GGUF, 0.6B–32B and Qwen3-30B-A3B), including models larger than your GPU memory (hybrid GPU+RAM). Other architectures (Llama, Gemma, Mistral, DeepSeek) are not supported yet — planned.
 - Local voice input (Russian, English, Ukrainian); the microphone turns on only when you press the button or Ctrl+M.
 - File agent restricted to a folder you choose. Every change is shown as a diff and needs your approval.
 - OpenAI-, Anthropic- and Ollama-compatible API for your own tools, local-only by default, with a separate key per client.
