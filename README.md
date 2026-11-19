@@ -48,18 +48,21 @@
 
 ## Скорость: замеры, а не обещание
 
-Ноутбук с RTX 5060 Laptop (8 ГБ видеопамяти) и 16 ГБ RAM, Windows 11.
+Ноутбук с RTX 5060 Laptop (8 ГБ видеопамяти) и 16 ГБ RAM, Windows 11. RAMVI и Ollama 0.40.13 измерены в один день (19.11.2026) на одном наборе.
 
-| Случай | RAMVI | Ollama | Кто быстрее |
-|---|---:|---:|---|
-| **Модель больше видеопамяти:** Qwen3-14B Q4_K_M (9,3 ГБ) с моделью-предсказателем Qwen3-0.6B. Часть слоёв в видеопамяти, остальное в RAM | **8,7–9,1** ток/с | 6,27 ток/с | RAMVI, ≈1,4× |
-| **Модель целиком в видеопамяти:** Qwen3-8B Q4_K_M | 32,8 ток/с | **52,2** ток/с | Ollama, ≈1,6× |
+| Случай | RAMVI 0.8.0 | RAMVI, следующая версия | Ollama 0.40.13 |
+|---|---:|---:|---:|
+| **Модель больше видеопамяти:** Qwen3-14B Q4_K_M (9,3 ГБ) с моделью-предсказателем Qwen3-0.6B: часть слоёв в видеопамяти, остальное в RAM | **8,17** ток/с | **8,17** ток/с | 6,17 ток/с |
+| **Модель целиком в видеопамяти:** Qwen3-8B Q4_K_M | 34,2 ток/с | 56,6 ток/с | **62,7** ток/с |
+| Время до первого слова (медиана), 14B / 8B | 0,55 / 0,18 с | 0,55 / 0,18 с | **0,35 / 0,07** с |
 
-Как мерили 14B: 30 вопросов разных типов (факты, код, математика, перевод, творчество и др.), до 200 токенов на ответ, температура 0, контекст 2048, размышления выключены, по два прогона; тексты ответов между прогонами совпали 30/30. Для Ollama взят более ранний замер на том же наборе и том же ноутбуке; на текущей версии Ollama его не повторяли.
+- **14B:** RAMVI быстрее в 1,33 раза и обгоняет Ollama на 22 вопросах из 30.
+- **8B:** в следующей версии RAMVI не включает предсказатель, если модель целиком помещается в видеопамять: там он только мешал. Скорость выросла в 1,65 раза при тех же ответах (совпали 30 из 30). Ollama на 8B пока быстрее примерно на 10%.
+- **Первое слово** Ollama выдаёт быстрее в обоих случаях.
 
-Честно об ограничениях:
-- Выигрыш зависит от типа текста: на коде, математике и JSON он больше, а на творческих запросах RAMVI с 14B даёт 3,5–5,3 ток/с — предсказатель хуже угадывает такой текст.
-- Когда модель целиком помещается в видеопамять, Ollama сейчас быстрее. Причина известна: в этом случае предсказатель мешает (без него RAMVI даёт на 8B 39–42 ток/с).
+Как мерили: 30 вопросов разных типов (факты, код, математика, перевод, творчество и др.), до 200 токенов на ответ, температура 0, контекст 2048, размышления выключены; одинаковые запросы к RAMVI и к Ollama. RAMVI на 8B прогнан дважды — 56,61 и 56,65 ток/с, тексты совпали 30 из 30.
+
+Честно об ограничениях: выигрыш на 14B зависит от типа текста. На JSON он 3,6×, на математике 2,4×, на коде 2,0×, а на творчестве (0,80×) и диалогах (0,89×) RAMVI медленнее Ollama: там предсказатель хуже угадывает.
 
 ## Установка и первый запуск
 
@@ -106,7 +109,7 @@ Get-FileHash .\RAMVI-0.8.0-win-x64.zip -Algorithm SHA256
 
 **Getting started:** download the ZIP from [Releases](https://github.com/karabilo214/RAMVI/releases/latest), unzip it anywhere (a disk or a USB stick) and run `RAMVI.exe`. No models are included: the app downloads the model and the small draft model itself.
 
-**Speed (measured, not promised):** on an RTX 5060 Laptop (8 GB) with 16 GB RAM, Qwen3-14B Q4_K_M (larger than VRAM) with a Qwen3-0.6B draft model runs at 8.7–9.1 tok/s in RAMVI vs 6.27 in Ollama (30 mixed prompts, ≤200 tokens, temperature 0). With Qwen3-8B fully in VRAM, Ollama is faster today: 52.2 vs 32.8 tok/s.
+**Speed (measured, not promised; RTX 5060 Laptop 8 GB, 16 GB RAM, same 30 mixed prompts, ≤200 tokens, temperature 0, measured the same day vs Ollama 0.40.13):** Qwen3-14B Q4_K_M (larger than VRAM) with a Qwen3-0.6B draft model — RAMVI 8.17 tok/s vs Ollama 6.17 (faster on 22/30 prompts). Qwen3-8B fully in VRAM — RAMVI 0.8.0 34.2, next version 56.6, Ollama 62.7 tok/s. Ollama has a faster first token in both cases.
 
 **Source code:** open under MIT at [github.com/karabilo214/AI](https://github.com/karabilo214/AI) (folder `ramvi`); this repository holds release builds, docs and licenses.
 
