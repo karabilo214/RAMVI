@@ -33,6 +33,7 @@
 - 📴 **Работает без интернета** после того, как модель скачана.
 - 🔒 **Приватность**: телеметрии нет. В сеть приложение ходит только по вашему действию: каталог моделей, загрузка модели, проверка обновлений.
 - 🧳 **Переносимое**: установка не нужна, запускается из любой папки и с флешки.
+- ☁️ **Облачные модели по API — в следующей версии**: по вашему ключу OpenAI (в том числе Codex), Anthropic (Claude), Google Gemini или совместимого сервиса; RAMVI работает транслятором для чата, агента и своего API. Ключ хранится в защищённом хранилище системы, у выбора модели видно, куда уходят запросы, есть лимиты расходов. Облако — только по вашему выбору, локальная работа не меняется. Проверено на Mac без NVIDIA: Claude и Codex ответили в чате за 2,2–2,6 с, агент с инструментами решил задачу.
 
 ## Требования
 
@@ -45,6 +46,8 @@
 | SSD / HDD / NVMe | ≥ 3,3 ГБ |
 
 Если драйвера нет или он старый, RAMVI при запуске скажет, что установить.
+
+В следующей версии видеокарта NVIDIA и драйвер нужны только для локальных моделей: с облачными моделями по API RAMVI работает и без них.
 
 ## Скорость: замеры, а не обещание
 
@@ -104,6 +107,7 @@ Get-FileHash .\RAMVI-0.8.0-win-x64.zip -Algorithm SHA256
 - File agent restricted to a folder you choose. Every change is shown as a diff and needs your approval.
 - OpenAI-, Anthropic- and Ollama-compatible API for your own tools, local-only by default, with a separate key per client.
 - Works offline once a model is downloaded. Portable: no installation, runs from any folder or a USB stick.
+- **Next version — cloud models via API:** with your own OpenAI (incl. Codex), Anthropic (Claude), Google Gemini or compatible key, RAMVI acts as a translator for chat, agent and its API. The key stays in the system key store, the model picker shows where requests go, spending limits are available. Cloud is opt-in; local work is unchanged. Tested on a Mac without NVIDIA: Claude and Codex answered chat in 2.2–2.6 s, the agent solved a task with tools. With cloud models only, no NVIDIA GPU is needed.
 
 **Requirements:** Windows 10/11 x64, an **NVIDIA GPU** with a driver that supports **CUDA 13.2 or newer** ([GeForce drivers](https://www.nvidia.com/drivers)), RAM ≥ 16 GB, SSD/HDD/NVMe ≥ 3.3 GB.
 
