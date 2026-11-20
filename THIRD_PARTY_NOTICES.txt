@@ -22,6 +22,7 @@ RAMVI: MIT (файл LICENSE рядом). Тексты лицензий — па
 - click 8.5.0: BSD-3-Clause — click-8.5.0.dist-info/licenses/LICENSE.txt
 - colorama 0.4.6: BSD License — colorama-0.4.6.dist-info/licenses/LICENSE.txt
 - filelock 4.2.4: MIT — filelock-4.2.4.dist-info/licenses/LICENSE
+- flatbuffers 25.12.19: Apache 2.0 — —
 - fsspec 2026.9.0: BSD-3-Clause — fsspec-2026.9.0.dist-info/licenses/LICENSE
 - h11 0.16.0: MIT — h11-0.16.0.dist-info/licenses/LICENSE.txt
 - hf-xet 1.8.0: Apache-2.0 — hf_xet-1.8.0.dist-info/licenses/LICENSE
@@ -40,8 +41,10 @@ RAMVI: MIT (файл LICENSE рядом). Тексты лицензий — па
 - networkx 3.7: BSD-3-Clause — networkx-3.7.dist-info/licenses/LICENSE.txt
 - numba 0.68.1: BSD — numba-0.68.1.dist-info/licenses/LICENSE (+1)
 - numpy 2.5.4: BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0 — numpy-2.5.4.dist-info/licenses/LICENSE.txt (+19)
+- onnxruntime 1.24.4: MIT License — onnxruntime/LICENSE (+1)
 - packaging 26.3: Apache-2.0 OR BSD-2-Clause — packaging-26.3.dist-info/licenses/LICENSE (+2)
 - platformdirs 4.14.7: MIT — platformdirs-4.14.7.dist-info/licenses/LICENSE
+- protobuf 7.36.2: 3-Clause BSD License — protobuf-7.36.2.dist-info/LICENSE
 - pycparser 3.12: BSD-3-Clause — pycparser-3.12.dist-info/licenses/LICENSE
 - pydantic 2.14.3: MIT — pydantic-2.14.3.dist-info/licenses/LICENSE
 - pydantic_core 2.50.4: MIT — pydantic_core-2.50.4.dist-info/licenses/LICENSE

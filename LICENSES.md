@@ -36,6 +36,7 @@ RAMVI is MIT-licensed. The release bundle contains third-party components under 
 | click-8.5.0 | BSD-3-Clause | [LICENSE.txt](licenses/python-packages/click-8.5.0/LICENSE.txt) |
 | colorama-0.4.6 | BSD License | [LICENSE.txt](licenses/python-packages/colorama-0.4.6/LICENSE.txt) |
 | filelock-4.2.4 | MIT | [LICENSE](licenses/python-packages/filelock-4.2.4/LICENSE) |
+| flatbuffers-25.12.19 | Apache-2.0 | [LICENSE-Apache-2.0.txt](licenses/python-packages/flatbuffers-25.12.19/LICENSE-Apache-2.0.txt) |
 | fsspec-2026.9.0 | BSD-3-Clause | [LICENSE](licenses/python-packages/fsspec-2026.9.0/LICENSE) |
 | h11-0.16.0 | MIT | [LICENSE.txt](licenses/python-packages/h11-0.16.0/LICENSE.txt) |
 | hf-xet-1.8.0 | Apache-2.0 | [LICENSE](licenses/python-packages/hf-xet-1.8.0/LICENSE) |
@@ -54,8 +55,10 @@ RAMVI is MIT-licensed. The release bundle contains third-party components under 
 | networkx-3.7 | BSD-3-Clause | [LICENSE.txt](licenses/python-packages/networkx-3.7/LICENSE.txt) |
 | numba-0.68.1 | BSD | [LICENSE](licenses/python-packages/numba-0.68.1/LICENSE), [LICENSES.third-party](licenses/python-packages/numba-0.68.1/LICENSES.third-party) |
 | numpy-2.5.4 | BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0 | [COPYING](licenses/python-packages/numpy-2.5.4/COPYING), [LICENSE](licenses/python-packages/numpy-2.5.4/LICENSE), [LICENSE.md](licenses/python-packages/numpy-2.5.4/LICENSE.md), [LICENSE.txt](licenses/python-packages/numpy-2.5.4/LICENSE.txt), [distributions-LICENSE.md](licenses/python-packages/numpy-2.5.4/distributions-LICENSE.md), [dragon4_LICENSE.txt](licenses/python-packages/numpy-2.5.4/dragon4_LICENSE.txt), [lapack_lite-LICENSE.txt](licenses/python-packages/numpy-2.5.4/lapack_lite-LICENSE.txt), [libdivide-LICENSE.txt](licenses/python-packages/numpy-2.5.4/libdivide-LICENSE.txt), [ma-LICENSE](licenses/python-packages/numpy-2.5.4/ma-LICENSE), [mt19937-LICENSE.md](licenses/python-packages/numpy-2.5.4/mt19937-LICENSE.md), [pcg64-LICENSE.md](licenses/python-packages/numpy-2.5.4/pcg64-LICENSE.md), [philox-LICENSE.md](licenses/python-packages/numpy-2.5.4/philox-LICENSE.md), [pocketfft-LICENSE.md](licenses/python-packages/numpy-2.5.4/pocketfft-LICENSE.md), [random-LICENSE.md](licenses/python-packages/numpy-2.5.4/random-LICENSE.md), [random-LICENSE.txt](licenses/python-packages/numpy-2.5.4/random-LICENSE.txt), [sfc64-LICENSE.md](licenses/python-packages/numpy-2.5.4/sfc64-LICENSE.md), [splitmix64-LICENSE.md](licenses/python-packages/numpy-2.5.4/splitmix64-LICENSE.md), [svml-LICENSE](licenses/python-packages/numpy-2.5.4/svml-LICENSE) |
+| onnxruntime-1.24.4 | MIT | [LICENSE](licenses/python-packages/onnxruntime-1.24.4/LICENSE), [ThirdPartyNotices.txt](licenses/python-packages/onnxruntime-1.24.4/ThirdPartyNotices.txt) |
 | packaging-26.3 | Apache-2.0 OR BSD-2-Clause | [LICENSE](licenses/python-packages/packaging-26.3/LICENSE), [LICENSE.APACHE](licenses/python-packages/packaging-26.3/LICENSE.APACHE), [LICENSE.BSD](licenses/python-packages/packaging-26.3/LICENSE.BSD) |
 | platformdirs-4.14.7 | MIT | [LICENSE](licenses/python-packages/platformdirs-4.14.7/LICENSE) |
+| protobuf-7.36.2 | BSD-3-Clause | [LICENSE](licenses/python-packages/protobuf-7.36.2/LICENSE) |
 | pycparser-3.12 | BSD-3-Clause | [LICENSE](licenses/python-packages/pycparser-3.12/LICENSE) |
 | pydantic-2.14.3 | MIT | [LICENSE](licenses/python-packages/pydantic-2.14.3/LICENSE) |
 | pydantic_core-2.50.4 | MIT | [LICENSE](licenses/python-packages/pydantic_core-2.50.4/LICENSE) |
