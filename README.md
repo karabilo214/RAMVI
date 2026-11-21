@@ -26,7 +26,7 @@
 
 ## Функции
 
-- **Чат.** Работает с моделями Qwen3 в формате GGUF: от 0.6B до 32B и Qwen3-30B-A3B. Модель можно скачать из встроенного каталога Hugging Face и Ollama или подключить свой файл. В чате видно, как модель рассуждает. Если модель не помещается в видеопамять, часть слоёв работает из оперативной памяти. Llama, Gemma, Mistral и DeepSeek пока не поддерживаются, они в планах.
+- **Чат.** Работает с моделями Qwen3 в формате GGUF, обычными и MoE. Размер не ограничен, лишь бы модель поместилась в видеопамять и оперативную память. Проверены модели от 0.6B до 32B и Qwen3-30B-A3B, они же есть во встроенном каталоге Hugging Face и Ollama. Можно подключить и свой файл, но одним куском: GGUF, разбитый на части, пока не открывается. В чате видно, как модель рассуждает. Если модель не помещается в видеопамять, часть слоёв работает из оперативной памяти. Llama, Gemma, Mistral и DeepSeek пока не поддерживаются, они в планах.
 - **Голосовой ввод** на русском, английском и украинском. Речь распознаётся на вашем компьютере. Микрофон включается только кнопкой или по Ctrl+M.
 - **Агент для файлов.** Читает, ищет и правит файлы только в папке, которую вы выбрали. Каждую правку сначала показывает как diff и применяет только после вашего подтверждения.
 - **API для своих программ**, совместимый с OpenAI, Anthropic и Ollama. По умолчанию доступен только с этого компьютера. У каждого клиента свой ключ и свой счётчик токенов.
@@ -113,7 +113,7 @@ Get-FileHash .\RAMVI-0.9.0-win-x64.zip -Algorithm SHA256
 
 ### Features
 
-- **Chat** with Qwen3 models in GGUF format: 0.6B to 32B and Qwen3-30B-A3B. Models that don't fit in GPU memory run partly from RAM. Llama, Gemma, Mistral and DeepSeek are not supported yet; they are planned.
+- **Chat** with Qwen3 models in GGUF format, dense and MoE. There is no size limit as long as the model fits into GPU memory plus RAM. Tested from 0.6B to 32B and Qwen3-30B-A3B; these are also in the built-in catalog. Your own file works too, but it has to be a single file: split GGUF files are not supported yet. Models that don't fit in GPU memory run partly from RAM. Llama, Gemma, Mistral and DeepSeek are not supported yet; they are planned.
 - **Voice input** in Russian, English and Ukrainian, recognized on your computer. The microphone turns on only with the button or Ctrl+M.
 - **File agent** that works only inside a folder you choose. Every change is shown as a diff first and applied only after you approve it.
 - **API for your own tools**, compatible with OpenAI, Anthropic and Ollama. Local-only by default, with a separate key per client.
