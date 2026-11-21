@@ -2,9 +2,9 @@
 
 # RAMVI
 
-**RAMVI — ваша персональная AI-платформа для Windows и macOS.**
+**Персональная AI-платформа для Windows и macOS.**
 
-Без обязательного облака. Без подписки. Без телеметрии. Ваш ИИ — под вашим контролем.
+Работает на вашем компьютере, без подписки и без телеметрии. Облако подключается, только если вы сами этого хотите.
 
 [**⬇ Скачать последнюю версию**](https://github.com/karabilo214/RAMVI/releases/latest) · [Лицензии](LICENSES.md) · [Сообщить об ошибке](https://github.com/karabilo214/RAMVI/issues) · [English](#english)
 
@@ -12,92 +12,92 @@
 
 ---
 
-## Как это выглядит
+## Экраны
 
-| Чат с моделью: видно, как она рассуждает | Агент ждёт вашего решения по правке (diff) |
+| Чат | Агент |
 |---|---|
 | ![Чат](docs/screenshots/chat.png) | ![Агент](docs/screenshots/agent.png) |
 
-| Первый запуск: мастер проверяет компьютер | Голосовой ввод: запись по кнопке или Ctrl+M |
+| Мастер запуска | Голосовой ввод |
 |---|---|
-| ![Первый запуск](docs/screenshots/first-run.png) | ![Голос](docs/screenshots/voice.png) |
+| ![Мастер запуска](docs/screenshots/first-run.png) | ![Голосовой ввод](docs/screenshots/voice.png) |
 
-<sub>Первый запуск и агент — снимки настоящих окон на Windows: первый запуск снят в чистой Windows Sandbox без сети и без установленных библиотек, агент — на ноутбуке с RTX 5060 (модель qwen3-8b). Чат и голос — тот же интерфейс, отрисованный автотестами оболочки с тестовым текстом.</sub>
+<sub>Мастер запуска и агент сняты в настоящих окнах Windows. Мастер — в чистой Windows Sandbox без сети и без установленных библиотек, агент — на ноутбуке с RTX 5060 и моделью qwen3-8b. Чат и голосовой ввод отрисованы автотестами оболочки, текст в них тестовый.</sub>
 
-## Что умеет
+## Функции
 
-- 💬 **Чат с языковой моделью**: модели семейства **Qwen3** (GGUF, от 0.6B до 32B и Qwen3-30B-A3B) из встроенного каталога Hugging Face/Ollama или своим файлом. Видно, как модель рассуждает. Если модель больше видеопамяти, часть слоёв работает из оперативной памяти. Другие архитектуры (Llama, Gemma, Mistral, DeepSeek) пока не поддерживаются — они в планах.
-- 🎙 **Голосовой ввод**: русский, английский, украинский. Распознавание работает на этом компьютере, микрофон включается только по кнопке или Ctrl+M.
-- 🛠 **Агент для файлов**: читает, ищет и правит файлы только в той папке, которую вы выбрали. Каждое изменение показывается как diff, и применяется только после вашего подтверждения.
-- 🔌 **API для своих программ**: совместим с OpenAI, Anthropic и Ollama, по умолчанию доступен только на этом компьютере. Ключи для каждого клиента отдельные, счётчики токенов тоже.
-- 📴 **Работает без интернета** после того, как модель скачана.
-- 🔒 **Приватность**: телеметрии нет. В сеть приложение ходит только по вашему действию: каталог моделей, загрузка модели, проверка обновлений.
-- 🧳 **Переносимое**: установка не нужна, запускается из любой папки и с флешки.
-- ☁️ **Облачные модели по API**: по вашему ключу OpenAI (в том числе Codex), Anthropic (Claude), Google Gemini или совместимого сервиса (OpenRouter, DeepSeek, Groq, LM Studio); RAMVI работает транслятором для чата, агента, персонажа и своего API. Ключ хранится в защищённом хранилище системы, у выбора модели видно, куда уходят запросы, есть учёт стоимости и лимиты расходов в день и в месяц. Облако — только по вашему выбору, локальная работа не меняется. Проверено на Mac без NVIDIA: Claude и Codex ответили в чате за 2,2–2,6 с, агент с инструментами решил задачу.
-- 🎭 **Персонаж** (модуль): собеседник с характером — профиль (дружелюбный, саркастичный, строгий и др.), текст и голос, память о вас с просмотром и удалением, подстройка по вашим оценкам. Качество зависит от модели: на облачных Claude и Codex персонаж в опасной ситуации отвечает всерьёз и называет номер экстренной службы (4 из 4 ответов), на локальной 8B — заметно слабее (1 из 2).
+- **Чат.** Работает с моделями Qwen3 в формате GGUF: от 0.6B до 32B и Qwen3-30B-A3B. Модель можно скачать из встроенного каталога Hugging Face и Ollama или подключить свой файл. В чате видно, как модель рассуждает. Если модель не помещается в видеопамять, часть слоёв работает из оперативной памяти. Llama, Gemma, Mistral и DeepSeek пока не поддерживаются, они в планах.
+- **Голосовой ввод** на русском, английском и украинском. Речь распознаётся на вашем компьютере. Микрофон включается только кнопкой или по Ctrl+M.
+- **Агент для файлов.** Читает, ищет и правит файлы только в папке, которую вы выбрали. Каждую правку сначала показывает как diff и применяет только после вашего подтверждения.
+- **API для своих программ**, совместимый с OpenAI, Anthropic и Ollama. По умолчанию доступен только с этого компьютера. У каждого клиента свой ключ и свой счётчик токенов.
+- **Без интернета.** Когда модель скачана, сеть больше не нужна.
+- **Приватность.** Телеметрии нет. В сеть приложение выходит, только когда вы сами что-то делаете: открываете каталог моделей, скачиваете модель или проверяете обновления.
+- **Без установки.** Запускается из любой папки, в том числе с флешки.
+- **Облачные модели по API.** Нужен ваш ключ OpenAI (в том числе для Codex), Anthropic (Claude), Google Gemini или совместимого сервиса: OpenRouter, DeepSeek, Groq, LM Studio. Облачную модель можно выбрать в чате, у агента, у персонажа и в своём API. Ключ лежит в защищённом хранилище системы. Рядом с выбранной моделью написано, куда уходят запросы. Расходы считаются, можно поставить лимит на день и на месяц. Пока вы не подключили облако, всё работает локально, как раньше. На Mac без NVIDIA Claude и Codex ответили в чате за 2,2–2,6 с, агент с инструментами решил задачу.
+- **Персонаж** (отдельный модуль). Собеседник со своим характером: дружелюбный, саркастичный, строгий и другие. Говорит текстом и голосом, помнит о вас (память можно посмотреть и удалить) и подстраивается под ваши оценки. Многое зависит от модели. В опасной ситуации на облачных Claude и Codex персонаж отвечал всерьёз и называл номер экстренной службы в 4 ответах из 4, на локальной 8B — в 1 из 2.
 
-## Требования
+## Системные требования для Windows
 
 | | |
 |---|---|
 | Система | Windows 10 или 11, 64-бит |
 | Видеокарта | **NVIDIA** (GeForce RTX и подобные) |
 | Драйвер | **NVIDIA с поддержкой CUDA 13.2 или новее**: [скачать драйвер GeForce](https://www.nvidia.com/drivers) |
-| RAM | ≥ 16 ГБ |
-| SSD / HDD / NVMe | ≥ 3,3 ГБ |
+| Оперативная память | от 16 ГБ |
+| Место на диске (SSD, HDD, NVMe) | от 3,3 ГБ |
 
-Если драйвера нет или он старый, RAMVI при запуске скажет, что установить.
+Если драйвера нет или он устарел, RAMVI при запуске подскажет, что поставить.
 
-Видеокарта NVIDIA и драйвер нужны только для локальных моделей: с облачными моделями по API RAMVI работает и без них.
+Видеокарта NVIDIA и драйвер нужны только для локальных моделей. С облачными моделями RAMVI работает и без них.
 
-### macOS (Apple Silicon)
+## macOS (Apple Silicon)
 
-С версии 0.9.0 есть сборка для Mac — `RAMVI-0.9.0-macos-arm64.zip` (153 МиБ): облачные модели по API, агент, персонаж, голосовой ввод. Локальных моделей на Mac нет: движку нужна видеокарта NVIDIA, и мастер первого запуска сразу ведёт к подключению облачной модели. Нужна macOS 12 или новее на M1–M4.
+С версии 0.9.0 есть сборка для Mac: `RAMVI-0.9.0-macos-arm64.zip`, 153 МиБ. В ней облачные модели, агент, персонаж и голосовой ввод. Локальных моделей на Mac нет, потому что движку нужна видеокарта NVIDIA. Мастер запуска сразу предложит подключить облачную модель. Нужен Mac на M1–M4 с macOS 12 или новее.
 
-Программа пока без подписи Apple, поэтому один раз снимите метку «скачано из интернета» в Терминале: `xattr -dr com.apple.quarantine /Applications/RAMVI.app` (путь — где лежит программа). Другой способ — «Системные настройки» → «Конфиденциальность и безопасность» → «Открыть всё равно» после первой попытки запуска.
+Программа пока не подписана Apple. Поэтому перед первым запуском снимите в Терминале метку «скачано из интернета»: `xattr -dr com.apple.quarantine /Applications/RAMVI.app` (укажите путь, где лежит программа). Можно и иначе: попробуйте запустить, затем откройте «Системные настройки» → «Конфиденциальность и безопасность» и нажмите «Открыть всё равно».
 
-Проверено на Mac M1 Pro: архив распакован в чистую папку, окно открылось, Claude ответил в чате за 1,9 с, агент с инструментами решил задачу, персонаж ответил в своём характере; torch и CUDA не загружаются.
+Проверяли на Mac M1 Pro. Архив распаковали в пустую папку, окно открылось, Claude ответил в чате за 1,9 с, агент с инструментами решил задачу, персонаж ответил в своём характере. torch и CUDA при этом не загружаются.
 
-## Скорость: замеры, а не обещание
+## Замеры
 
-Ноутбук с RTX 5060 Laptop (8 ГБ видеопамяти) и 16 ГБ RAM, Windows 11. RAMVI и Ollama 0.40.13 измерены в один день (19.11.2026) на одном наборе.
+Ноутбук с RTX 5060 Laptop (8 ГБ видеопамяти), 16 ГБ оперативной памяти, Windows 11. RAMVI и Ollama 0.40.13 мерили в один день, 19.11.2026, на одном и том же наборе вопросов.
 
 | Случай | RAMVI 0.8.0 | RAMVI 0.9.0 | Ollama 0.40.13 |
 |---|---:|---:|---:|
-| **Модель больше видеопамяти:** Qwen3-14B Q4_K_M (9,3 ГБ) с моделью-предсказателем Qwen3-0.6B: часть слоёв в видеопамяти, остальное в RAM | **8,17** ток/с | **8,17** ток/с | 6,17 ток/с |
+| **Модель больше видеопамяти:** Qwen3-14B Q4_K_M (9,3 ГБ) с моделью-предсказателем Qwen3-0.6B, часть слоёв в видеопамяти, остальные в оперативной | **8,17** ток/с | **8,17** ток/с | 6,17 ток/с |
 | **Модель целиком в видеопамяти:** Qwen3-8B Q4_K_M | 34,2 ток/с | 56,6 ток/с | **62,7** ток/с |
 | Время до первого слова (медиана), 14B / 8B | 0,55 / 0,18 с | 0,55 / 0,18 с | **0,35 / 0,07** с |
 
-- **14B:** RAMVI быстрее в 1,33 раза и обгоняет Ollama на 22 вопросах из 30.
-- **8B:** с версии 0.9.0 RAMVI не включает предсказатель, если модель целиком помещается в видеопамять: там он только мешал. Скорость выросла в 1,65 раза при тех же ответах (совпали 30 из 30). Ollama на 8B пока быстрее примерно на 10%.
-- **Первое слово** Ollama выдаёт быстрее в обоих случаях.
+- **14B.** RAMVI быстрее в 1,33 раза и обгоняет Ollama на 22 вопросах из 30.
+- **8B.** В версии 0.9.0 RAMVI больше не включает предсказатель, если модель целиком помещается в видеопамять: в этом случае он только тормозил. Скорость выросла в 1,65 раза, ответы те же (совпали 30 из 30). Ollama на 8B пока быстрее примерно на 10%.
+- **Первое слово** в обоих случаях быстрее выдаёт Ollama.
 
-Как мерили: 30 вопросов разных типов (факты, код, математика, перевод, творчество и др.), до 200 токенов на ответ, температура 0, контекст 2048, размышления выключены; одинаковые запросы к RAMVI и к Ollama. RAMVI на 8B прогнан дважды — 56,61 и 56,65 ток/с, тексты совпали 30 из 30.
+Как мерили: 30 вопросов разных типов (факты, код, математика, перевод, творческие задания и другие), до 200 токенов на ответ, температура 0, контекст 2048, размышления выключены. RAMVI и Ollama получали одинаковые запросы. RAMVI на 8B прогнали дважды: 56,61 и 56,65 ток/с, тексты совпали 30 из 30.
 
-Честно об ограничениях: выигрыш на 14B зависит от типа текста. На JSON он 3,6×, на математике 2,4×, на коде 2,0×, а на творчестве (0,80×) и диалогах (0,89×) RAMVI медленнее Ollama: там предсказатель хуже угадывает.
+Выигрыш на 14B зависит от того, что за текст. На JSON RAMVI быстрее в 3,6 раза, на математике в 2,4, на коде в 2,0. А на творческих заданиях (0,80) и диалогах (0,89) медленнее Ollama: там предсказатель хуже угадывает следующие слова.
 
 ## Установка и первый запуск
 
 1. Скачайте `RAMVI-<версия>-win-x64.zip` со страницы [Releases](https://github.com/karabilo214/RAMVI/releases/latest).
-2. Распакуйте в любое место: на диск или на флешку. RAMVI запускается прямо оттуда, установка не нужна, флешку можно подключать к другому компьютеру.
+2. Распакуйте в любое место, на диск или на флешку. Устанавливать ничего не нужно, флешку можно переносить на другой компьютер.
 3. Запустите **`RAMVI.exe`**.
-4. Мастер проверит компьютер и предложит модель. **Модели в архив не входят**: основную модель и маленькую модель-предсказатель (ускоряет ответы) приложение скачивает само из каталога. Можно и подключить уже скачанный файл GGUF или модели Ollama.
+4. Мастер проверит компьютер и предложит модель. **Моделей в архиве нет**: основную модель и маленькую модель-предсказатель, которая ускоряет ответы, приложение скачает само. Можно подключить и уже скачанный файл GGUF или модели Ollama.
 
-Настройки и история хранятся рядом с приложением, в папке `data`. Если папка открыта только на чтение, RAMVI предложит выбрать другую.
+Настройки и история лежат рядом с приложением, в папке `data`. Если в эту папку нельзя писать, RAMVI предложит выбрать другую.
 
 ## Обновления
 
-Обновления подписаны ключом выпуска (Ed25519). Неподписанный или изменённый пакет не установится. Если новая версия не запустится, RAMVI сам вернётся к прежней. Чаты, модели и настройки обновление не трогает.
+Обновления подписаны ключом выпуска (Ed25519), поэтому неподписанный или изменённый пакет не установится. Если новая версия не запустится, RAMVI сам вернётся к прежней. Чаты, модели и настройки при обновлении остаются на месте.
 
 ## Исходный код
 
-Исходный код RAMVI открыт по лицензии MIT: [github.com/karabilo214/AI](https://github.com/karabilo214/AI), папка [ramvi](https://github.com/karabilo214/AI/tree/main/ramvi) — сервис, движок, оболочка, тесты и отчёты проверок. В этом репозитории — готовые сборки, описание и лицензии.
+Код RAMVI открыт по лицензии MIT: [github.com/karabilo214/AI](https://github.com/karabilo214/AI), папка [ramvi](https://github.com/karabilo214/AI/tree/main/ramvi). Там сервис, движок, оболочка, тесты и отчёты проверок. В этом репозитории лежат готовые сборки, описание и лицензии.
 
 ## Состав и лицензии
 
-Код RAMVI распространяется по лицензии [MIT](LICENSE). В архив входят сторонние компоненты: Python, PyTorch с библиотеками NVIDIA CUDA и cuDNN, Triton, Transformers, whisper.cpp, .NET и Avalonia и другие. У каждого свои условия. **Полный список со ссылками на все тексты — [LICENSES.md](LICENSES.md)**, сами тексты — в папке [`licenses/`](licenses/) (та же папка есть внутри архива). Библиотеки NVIDIA и Microsoft можно использовать только в составе RAMVI, подробнее — [THIRD_PARTY_TERMS.txt](licenses/THIRD_PARTY_TERMS.txt).
+Код RAMVI распространяется по лицензии [MIT](LICENSE). В архив входят сторонние компоненты, у каждого свои условия: Python, PyTorch с библиотеками NVIDIA CUDA и cuDNN, Triton, Transformers, whisper.cpp, .NET, Avalonia и другие. **Полный список со ссылками на все тексты лицензий — в [LICENSES.md](LICENSES.md)**, сами тексты — в папке [`licenses/`](licenses/) (такая же папка есть в архиве). Библиотеки NVIDIA и Microsoft можно использовать только в составе RAMVI, подробности в [THIRD_PARTY_TERMS.txt](licenses/THIRD_PARTY_TERMS.txt).
 
-Проверить целостность скачанного архива можно по SHA-256, он указан в описании каждого релиза:
+Целостность скачанного архива можно проверить по SHA-256, он указан в описании каждого релиза:
 
 ```powershell
 Get-FileHash .\RAMVI-0.9.0-win-x64.zip -Algorithm SHA256
@@ -109,24 +109,38 @@ Get-FileHash .\RAMVI-0.9.0-win-x64.zip -Algorithm SHA256
 
 ## English
 
-**RAMVI is your personal AI platform for Windows and macOS.** No mandatory cloud. No subscription. No telemetry. Your AI, under your control.
+**RAMVI is a personal AI platform for Windows and macOS.** It runs on your own computer, with no subscription and no telemetry. Cloud models are used only if you connect them yourself.
 
-- Chat with **Qwen3** family models (GGUF, 0.6B–32B and Qwen3-30B-A3B), including models larger than your GPU memory (hybrid GPU+RAM). Other architectures (Llama, Gemma, Mistral, DeepSeek) are not supported yet — planned.
-- Local voice input (Russian, English, Ukrainian); the microphone turns on only when you press the button or Ctrl+M.
-- File agent restricted to a folder you choose. Every change is shown as a diff and needs your approval.
-- OpenAI-, Anthropic- and Ollama-compatible API for your own tools, local-only by default, with a separate key per client.
-- Works offline once a model is downloaded. Portable: no installation, runs from any folder or a USB stick.
-- **Cloud models via API:** with your own OpenAI (incl. Codex), Anthropic (Claude), Google Gemini or compatible key, RAMVI acts as a translator for chat, agent, character and its API. The key stays in the system key store, the model picker shows where requests go, cost tracking and daily/monthly spending limits are available. Cloud is opt-in; local work is unchanged. Tested on a Mac without NVIDIA: Claude and Codex answered chat in 2.2–2.6 s, the agent solved a task with tools. With cloud models only, no NVIDIA GPU is needed.
-- **Character** (module): a companion with a personality profile, text and voice, memory you can view and delete. Quality depends on the model: on cloud Claude and Codex it answered emergencies seriously with an emergency number (4 of 4), on local 8B noticeably weaker (1 of 2).
+### Features
 
-**macOS (Apple Silicon, macOS 12+):** `RAMVI-0.9.0-macos-arm64.zip` (153 MiB) — cloud models, agent, character, voice input; no local models (the engine needs NVIDIA). Not signed by Apple yet: run `xattr -dr com.apple.quarantine /Applications/RAMVI.app` once, or use System Settings → Privacy & Security → Open Anyway.
+- **Chat** with Qwen3 models in GGUF format: 0.6B to 32B and Qwen3-30B-A3B. Models that don't fit in GPU memory run partly from RAM. Llama, Gemma, Mistral and DeepSeek are not supported yet; they are planned.
+- **Voice input** in Russian, English and Ukrainian, recognized on your computer. The microphone turns on only with the button or Ctrl+M.
+- **File agent** that works only inside a folder you choose. Every change is shown as a diff first and applied only after you approve it.
+- **API for your own tools**, compatible with OpenAI, Anthropic and Ollama. Local-only by default, with a separate key per client.
+- Works offline once a model is downloaded. No installation needed: runs from any folder or a USB stick.
+- **Cloud models via API** with your own OpenAI (including Codex), Anthropic (Claude), Google Gemini or compatible key. You can pick a cloud model in chat, for the agent, for the character and in the API. The key is kept in the system key store, the model picker shows where requests go, and costs are tracked with optional daily and monthly limits. Until you connect a cloud model, everything stays local. On a Mac without NVIDIA, Claude and Codex answered in chat in 2.2–2.6 s and the agent solved a task with tools. Cloud models don't need an NVIDIA GPU.
+- **Character** (a separate module): a companion with a personality, text and voice, and a memory you can view and delete. A lot depends on the model. In an emergency, on cloud Claude and Codex it answered seriously and gave an emergency number in 4 of 4 replies; on local 8B, in 1 of 2.
 
-**Requirements (Windows):** Windows 10/11 x64, an **NVIDIA GPU** with a driver that supports **CUDA 13.2 or newer** ([GeForce drivers](https://www.nvidia.com/drivers)), RAM ≥ 16 GB, SSD/HDD/NVMe ≥ 3.3 GB.
+### macOS (Apple Silicon)
 
-**Getting started:** download the ZIP from [Releases](https://github.com/karabilo214/RAMVI/releases/latest), unzip it anywhere (a disk or a USB stick) and run `RAMVI.exe`. No models are included: the app downloads the model and the small draft model itself.
+`RAMVI-0.9.0-macos-arm64.zip`, 153 MiB, for M1–M4 Macs with macOS 12 or newer: cloud models, agent, character and voice input. There are no local models on Mac because the engine needs an NVIDIA GPU. The app isn't signed by Apple yet, so run `xattr -dr com.apple.quarantine /Applications/RAMVI.app` once, or try to open it and then go to System Settings → Privacy & Security → Open Anyway.
 
-**Speed (measured, not promised; RTX 5060 Laptop 8 GB, 16 GB RAM, same 30 mixed prompts, ≤200 tokens, temperature 0, measured the same day vs Ollama 0.40.13):** Qwen3-14B Q4_K_M (larger than VRAM) with a Qwen3-0.6B draft model — RAMVI 8.17 tok/s vs Ollama 6.17 (faster on 22/30 prompts). Qwen3-8B fully in VRAM — RAMVI 0.8.0 34.2, 0.9.0 56.6, Ollama 62.7 tok/s. Ollama has a faster first token in both cases.
+### System requirements for Windows
 
-**Source code:** open under MIT at [github.com/karabilo214/AI](https://github.com/karabilo214/AI) (folder `ramvi`); this repository holds release builds, docs and licenses.
+Windows 10 or 11, 64-bit; an **NVIDIA GPU** with a driver that supports **CUDA 13.2 or newer** ([GeForce drivers](https://www.nvidia.com/drivers)); 16 GB of RAM or more; 3.3 GB of free disk space (SSD, HDD or NVMe).
 
-**Licenses:** RAMVI is [MIT](LICENSE)-licensed; third-party components keep their own terms. See [LICENSES.md](LICENSES.md) for links to every license text.
+### Getting started
+
+Download the ZIP from [Releases](https://github.com/karabilo214/RAMVI/releases/latest), unzip it anywhere (a disk or a USB stick) and run `RAMVI.exe`. Models are not included: the app downloads the main model and the small draft model itself.
+
+### Benchmarks
+
+RTX 5060 Laptop (8 GB), 16 GB RAM, the same 30 mixed prompts, up to 200 tokens, temperature 0, measured on the same day as Ollama 0.40.13. Qwen3-14B Q4_K_M (larger than VRAM) with a Qwen3-0.6B draft model: RAMVI 8.17 tok/s, Ollama 6.17 tok/s (RAMVI was faster on 22 of 30 prompts). Qwen3-8B fully in VRAM: RAMVI 0.8.0 34.2, 0.9.0 56.6, Ollama 62.7 tok/s. Ollama gives the first token faster in both cases.
+
+### Source code
+
+Open under MIT at [github.com/karabilo214/AI](https://github.com/karabilo214/AI), in the `ramvi` folder. This repository holds release builds, docs and licenses.
+
+### Licenses
+
+RAMVI is [MIT](LICENSE)-licensed; third-party components keep their own terms. [LICENSES.md](LICENSES.md) links to every license text.
