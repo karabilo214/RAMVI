@@ -4,6 +4,8 @@ RAMVI распространяется по лицензии MIT. В компл�
 
 RAMVI is MIT-licensed. The release bundle contains third-party components under their own terms; all texts are in [`licenses/`](licenses/) here and inside the release archive.
 
+**macOS:** сборка для Mac содержит меньше компонентов (нет PyTorch, CUDA, Triton, библиотек Visual C++) и Python 3.12 из python-build-standalone; полный набор её текстов лежит внутри архива: `RAMVI.app/Contents/Resources/licenses`, сводка — `RAMVI.app/Contents/Resources/THIRD_PARTY_NOTICES.txt`. / The macOS build contains fewer components (no PyTorch, CUDA, Triton or Visual C++ libraries); its license texts are inside the archive at `RAMVI.app/Contents/Resources/licenses`.
+
 ## RAMVI
 
 | Компонент | Лицензия | Текст |

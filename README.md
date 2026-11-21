@@ -2,7 +2,7 @@
 
 # RAMVI
 
-**RAMVI — ваша персональная AI-платформа для Windows.**
+**RAMVI — ваша персональная AI-платформа для Windows и macOS.**
 
 Без обязательного облака. Без подписки. Без телеметрии. Ваш ИИ — под вашим контролем.
 
@@ -49,6 +49,14 @@
 Если драйвера нет или он старый, RAMVI при запуске скажет, что установить.
 
 Видеокарта NVIDIA и драйвер нужны только для локальных моделей: с облачными моделями по API RAMVI работает и без них.
+
+### macOS (Apple Silicon)
+
+С версии 0.9.0 есть сборка для Mac — `RAMVI-0.9.0-macos-arm64.zip` (153 МиБ): облачные модели по API, агент, персонаж, голосовой ввод. Локальных моделей на Mac нет: движку нужна видеокарта NVIDIA, и мастер первого запуска сразу ведёт к подключению облачной модели. Нужна macOS 12 или новее на M1–M4.
+
+Программа пока без подписи Apple, поэтому один раз снимите метку «скачано из интернета» в Терминале: `xattr -dr com.apple.quarantine /Applications/RAMVI.app` (путь — где лежит программа). Другой способ — «Системные настройки» → «Конфиденциальность и безопасность» → «Открыть всё равно» после первой попытки запуска.
+
+Проверено на Mac M1 Pro: архив распакован в чистую папку, окно открылось, Claude ответил в чате за 1,9 с, агент с инструментами решил задачу, персонаж ответил в своём характере; torch и CUDA не загружаются.
 
 ## Скорость: замеры, а не обещание
 
@@ -101,7 +109,7 @@ Get-FileHash .\RAMVI-0.9.0-win-x64.zip -Algorithm SHA256
 
 ## English
 
-**RAMVI is your personal AI platform for Windows.** No mandatory cloud. No subscription. No telemetry. Your AI, under your control.
+**RAMVI is your personal AI platform for Windows and macOS.** No mandatory cloud. No subscription. No telemetry. Your AI, under your control.
 
 - Chat with **Qwen3** family models (GGUF, 0.6B–32B and Qwen3-30B-A3B), including models larger than your GPU memory (hybrid GPU+RAM). Other architectures (Llama, Gemma, Mistral, DeepSeek) are not supported yet — planned.
 - Local voice input (Russian, English, Ukrainian); the microphone turns on only when you press the button or Ctrl+M.
@@ -111,7 +119,9 @@ Get-FileHash .\RAMVI-0.9.0-win-x64.zip -Algorithm SHA256
 - **Cloud models via API:** with your own OpenAI (incl. Codex), Anthropic (Claude), Google Gemini or compatible key, RAMVI acts as a translator for chat, agent, character and its API. The key stays in the system key store, the model picker shows where requests go, cost tracking and daily/monthly spending limits are available. Cloud is opt-in; local work is unchanged. Tested on a Mac without NVIDIA: Claude and Codex answered chat in 2.2–2.6 s, the agent solved a task with tools. With cloud models only, no NVIDIA GPU is needed.
 - **Character** (module): a companion with a personality profile, text and voice, memory you can view and delete. Quality depends on the model: on cloud Claude and Codex it answered emergencies seriously with an emergency number (4 of 4), on local 8B noticeably weaker (1 of 2).
 
-**Requirements:** Windows 10/11 x64, an **NVIDIA GPU** with a driver that supports **CUDA 13.2 or newer** ([GeForce drivers](https://www.nvidia.com/drivers)), RAM ≥ 16 GB, SSD/HDD/NVMe ≥ 3.3 GB.
+**macOS (Apple Silicon, macOS 12+):** `RAMVI-0.9.0-macos-arm64.zip` (153 MiB) — cloud models, agent, character, voice input; no local models (the engine needs NVIDIA). Not signed by Apple yet: run `xattr -dr com.apple.quarantine /Applications/RAMVI.app` once, or use System Settings → Privacy & Security → Open Anyway.
+
+**Requirements (Windows):** Windows 10/11 x64, an **NVIDIA GPU** with a driver that supports **CUDA 13.2 or newer** ([GeForce drivers](https://www.nvidia.com/drivers)), RAM ≥ 16 GB, SSD/HDD/NVMe ≥ 3.3 GB.
 
 **Getting started:** download the ZIP from [Releases](https://github.com/karabilo214/RAMVI/releases/latest), unzip it anywhere (a disk or a USB stick) and run `RAMVI.exe`. No models are included: the app downloads the model and the small draft model itself.
 
