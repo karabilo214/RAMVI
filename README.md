@@ -27,14 +27,14 @@
 ## Функции
 
 - **Чат.** Движок поддерживает архитектуры Qwen3 (обычные модели) и Qwen3 MoE в формате GGUF, квантования Q4_K_M и F16 у обычных моделей и Q4_K_M у MoE. Размер модели ограничивает только память: что не помещается в видеопамять, работает из оперативной. Ответы ускоряет маленькая модель-предсказатель (speculative decoding). Есть ответ строго по JSON-схеме и вызов инструментов. Модели можно скачать из встроенного каталога Hugging Face и Ollama или подключить свой файл (одним куском: GGUF, разбитый на части, пока не открывается). В чате видно, как модель рассуждает. Llama, Gemma, Mistral и DeepSeek пока не поддерживаются, они в планах.
-- **Голосовой ввод** на русском, английском и украинском. Речь распознаётся на вашем компьютере, микрофон включается только когда вы сами его включили.
+- **Голосовой ввод.** Речь распознаётся на вашем компьютере моделью Whisper. В настройках можно выбрать русский, английский или украинский язык или автоопределение: тогда распознаются и другие языки, которые знает Whisper. Микрофон включается только когда вы сами его включили.
 - **Агент для файлов.** Читает, ищет и правит файлы только в папке, которую вы выбрали. Каждую правку сначала показывает как diff и применяет только после вашего подтверждения.
 - **API для своих программ**, совместимый с OpenAI, Anthropic и Ollama. По умолчанию доступен только с этого компьютера. У каждого клиента свой ключ и свой счётчик токенов.
 - **Без интернета.** Когда модель скачана, сеть больше не нужна.
 - **Приватность.** Телеметрии нет. В сеть приложение выходит, только когда вы сами что-то делаете: открываете каталог моделей, скачиваете модель или проверяете обновления.
 - **Без установки.** Запускается из любой папки, в том числе с флешки.
 - **Горячие клавиши:** Ctrl+M — микрофон, Esc — остановить ответ или запись, Ctrl+N — новый чат.
-- **Облачные модели по API.** Нужен ваш ключ OpenAI (в том числе для Codex), Anthropic (Claude), Google Gemini или совместимого сервиса: OpenRouter, DeepSeek, Groq, LM Studio. Облачную модель можно выбрать в чате, у агента, у персонажа и в своём API. Ключ лежит в защищённом хранилище системы. Рядом с выбранной моделью написано, куда уходят запросы. Расходы считаются, можно поставить лимит на день и на месяц. Пока вы не подключили облако, всё работает локально, как раньше. На Mac без NVIDIA Claude и Codex ответили в чате за 2,2–2,6 с, агент с инструментами решил задачу.
+- **Облачные модели по API.** Подключаются три вида API: OpenAI (в том числе Codex) и любые совместимые с ним сервисы, например OpenRouter, DeepSeek, Groq, а также LM Studio или vLLM на этом компьютере; Anthropic (Claude); Google Gemini. Адрес сервиса можно указать свой, ключ — ваш. Облачную модель можно выбрать в чате, у агента, у персонажа и в своём API. Ключ лежит в защищённом хранилище системы. Рядом с выбранной моделью написано, куда уходят запросы. Расходы считаются, можно поставить лимит на день и на месяц. Пока вы не подключили облако, всё работает локально, как раньше. На Mac без NVIDIA Claude и Codex ответили в чате за 2,2–2,6 с, агент с инструментами решил задачу.
 - **Персонаж** (отдельный модуль). Собеседник со своим характером: дружелюбный, саркастичный, строгий и другие. Говорит текстом и голосом, помнит о вас (память можно посмотреть и удалить) и подстраивается под ваши оценки. Многое зависит от модели. В опасной ситуации на облачных Claude и Codex персонаж отвечал всерьёз и называл номер экстренной службы в 4 ответах из 4, на локальной 8B — в 1 из 2.
 
 ## Системные требования для Windows
@@ -42,10 +42,10 @@
 | | |
 |---|---|
 | Система | Windows 10 или 11, 64-бит |
-| Видеокарта | **NVIDIA** (GeForce RTX и подобные) |
+| Видеокарта | **NVIDIA**, которую поддерживает CUDA 13 |
 | Драйвер | **NVIDIA с поддержкой CUDA 13.2 или новее**: [скачать драйвер GeForce](https://www.nvidia.com/drivers) |
-| Оперативная память | от 16 ГБ |
-| Место на диске (SSD, HDD, NVMe) | от 3,3 ГБ |
+| Оперативная память | сколько нужно выбранной модели: мастер запуска посчитает и подскажет, какие модели подойдут |
+| Место на диске (SSD, HDD, NVMe) | 3,3 ГБ под программу и место под модели |
 
 Если драйвера нет или он устарел, RAMVI при запуске подскажет, что поставить.
 
@@ -53,7 +53,7 @@
 
 ## macOS (Apple Silicon)
 
-С версии 0.9.0 есть сборка для Mac: `RAMVI-0.9.0-macos-arm64.zip`, 153 МиБ. В ней облачные модели, агент, персонаж и голосовой ввод. Локальных моделей на Mac нет, потому что движку нужна видеокарта NVIDIA. Мастер запуска сразу предложит подключить облачную модель. Нужен Mac на M1–M4 с macOS 12 или новее.
+С версии 0.9.0 есть сборка для Mac: `RAMVI-0.9.0-macos-arm64.zip`, 153 МиБ. В ней облачные модели, агент, персонаж и голосовой ввод. Локальных моделей на Mac нет, потому что движку нужна видеокарта NVIDIA. Мастер запуска сразу предложит подключить облачную модель. Нужен Mac на Apple Silicon (M1 и новее) с macOS 12 или новее.
 
 Программа пока не подписана Apple. Поэтому перед первым запуском снимите в Терминале метку «скачано из интернета»: `xattr -dr com.apple.quarantine /Applications/RAMVI.app` (укажите путь, где лежит программа). Можно и иначе: попробуйте запустить, затем откройте «Системные настройки» → «Конфиденциальность и безопасность» и нажмите «Открыть всё равно».
 
@@ -115,21 +115,21 @@ Get-FileHash .\RAMVI-0.9.0-win-x64.zip -Algorithm SHA256
 ### Features
 
 - **Chat.** The engine supports the Qwen3 (dense) and Qwen3 MoE architectures in GGUF format, with Q4_K_M and F16 quantization for dense models and Q4_K_M for MoE. Model size is limited only by memory: whatever doesn't fit in GPU memory runs from RAM. A small draft model speeds up replies (speculative decoding). JSON-schema output and tool calling are supported. Models can be downloaded from the built-in Hugging Face and Ollama catalog, or you can use your own file (a single file: split GGUF files are not supported yet). Llama, Gemma, Mistral and DeepSeek are not supported yet; they are planned.
-- **Voice input** in Russian, English and Ukrainian, recognized on your computer. The microphone is on only when you turn it on.
+- **Voice input**, recognized on your computer by Whisper. In settings you can pick Russian, English or Ukrainian, or automatic detection, which also covers the other languages Whisper knows. The microphone is on only when you turn it on.
 - **File agent** that works only inside a folder you choose. Every change is shown as a diff first and applied only after you approve it.
 - **API for your own tools**, compatible with OpenAI, Anthropic and Ollama. Local-only by default, with a separate key per client.
 - Works offline once a model is downloaded. No installation needed: runs from any folder or a USB stick.
 - **Shortcuts:** Ctrl+M — microphone, Esc — stop the reply or recording, Ctrl+N — new chat.
-- **Cloud models via API** with your own OpenAI (including Codex), Anthropic (Claude), Google Gemini or compatible key. You can pick a cloud model in chat, for the agent, for the character and in the API. The key is kept in the system key store, the model picker shows where requests go, and costs are tracked with optional daily and monthly limits. Until you connect a cloud model, everything stays local. On a Mac without NVIDIA, Claude and Codex answered in chat in 2.2–2.6 s and the agent solved a task with tools. Cloud models don't need an NVIDIA GPU.
+- **Cloud models via API.** Three kinds of API: OpenAI (including Codex) and any service compatible with it, such as OpenRouter, DeepSeek, Groq, or LM Studio and vLLM on this computer; Anthropic (Claude); Google Gemini. You can set your own service address; the key is yours. You can pick a cloud model in chat, for the agent, for the character and in the API. The key is kept in the system key store, the model picker shows where requests go, and costs are tracked with optional daily and monthly limits. Until you connect a cloud model, everything stays local. On a Mac without NVIDIA, Claude and Codex answered in chat in 2.2–2.6 s and the agent solved a task with tools. Cloud models don't need an NVIDIA GPU.
 - **Character** (a separate module): a companion with a personality, text and voice, and a memory you can view and delete. A lot depends on the model. In an emergency, on cloud Claude and Codex it answered seriously and gave an emergency number in 4 of 4 replies; on local 8B, in 1 of 2.
 
 ### macOS (Apple Silicon)
 
-`RAMVI-0.9.0-macos-arm64.zip`, 153 MiB, for M1–M4 Macs with macOS 12 or newer: cloud models, agent, character and voice input. There are no local models on Mac because the engine needs an NVIDIA GPU. The app isn't signed by Apple yet, so run `xattr -dr com.apple.quarantine /Applications/RAMVI.app` once, or try to open it and then go to System Settings → Privacy & Security → Open Anyway.
+`RAMVI-0.9.0-macos-arm64.zip`, 153 MiB, for Apple Silicon Macs (M1 and newer) with macOS 12 or newer: cloud models, agent, character and voice input. There are no local models on Mac because the engine needs an NVIDIA GPU. The app isn't signed by Apple yet, so run `xattr -dr com.apple.quarantine /Applications/RAMVI.app` once, or try to open it and then go to System Settings → Privacy & Security → Open Anyway.
 
 ### System requirements for Windows
 
-Windows 10 or 11, 64-bit; an **NVIDIA GPU** with a driver that supports **CUDA 13.2 or newer** ([GeForce drivers](https://www.nvidia.com/drivers)); 16 GB of RAM or more; 3.3 GB of free disk space (SSD, HDD or NVMe).
+Windows 10 or 11, 64-bit; an **NVIDIA GPU** supported by CUDA 13, with a driver that supports **CUDA 13.2 or newer** ([GeForce drivers](https://www.nvidia.com/drivers)); as much RAM as the chosen model needs (the setup wizard works it out and shows which models fit); 3.3 GB of disk space for the app plus space for models.
 
 ### Getting started
 
