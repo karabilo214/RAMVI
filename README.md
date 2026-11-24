@@ -53,7 +53,7 @@
 
 ## macOS (Apple Silicon)
 
-С версии 0.9.0 есть сборка для Mac: `RAMVI-0.9.0-macos-arm64.zip`, 153 МиБ. В ней облачные модели, агент, персонаж и голосовой ввод. Локальных моделей на Mac нет, потому что движку нужна видеокарта NVIDIA. Мастер запуска сразу предложит подключить облачную модель. Нужен Mac на Apple Silicon (M1 и новее) с macOS 12 или новее.
+С версии 0.9.0 есть сборка для Mac; в 0.9.1 — `RAMVI-0.9.1-macos-arm64.zip`, 153 МиБ. В ней облачные модели, агент, персонаж и голосовой ввод. Локальных моделей на Mac нет, потому что движку нужна видеокарта NVIDIA. Мастер запуска сразу предложит подключить облачную модель. Нужен Mac на Apple Silicon (M1 и новее) с macOS 12 или новее.
 
 Программа пока не подписана Apple. Поэтому перед первым запуском снимите в Терминале метку «скачано из интернета»: `xattr -dr com.apple.quarantine /Applications/RAMVI.app` (укажите путь, где лежит программа). Можно и иначе: попробуйте запустить, затем откройте «Системные настройки» → «Конфиденциальность и безопасность» и нажмите «Открыть всё равно».
 
@@ -101,7 +101,7 @@
 Целостность скачанного архива можно проверить по SHA-256, он указан в описании каждого релиза:
 
 ```powershell
-Get-FileHash .\RAMVI-0.9.0-win-x64.zip -Algorithm SHA256
+Get-FileHash .\RAMVI-0.9.1-win-x64.zip -Algorithm SHA256
 ```
 
 ---
@@ -125,7 +125,7 @@ Get-FileHash .\RAMVI-0.9.0-win-x64.zip -Algorithm SHA256
 
 ### macOS (Apple Silicon)
 
-`RAMVI-0.9.0-macos-arm64.zip`, 153 MiB, for Apple Silicon Macs (M1 and newer) with macOS 12 or newer: cloud models, agent, character and voice input. There are no local models on Mac because the engine needs an NVIDIA GPU. The app isn't signed by Apple yet, so run `xattr -dr com.apple.quarantine /Applications/RAMVI.app` once, or try to open it and then go to System Settings → Privacy & Security → Open Anyway.
+`RAMVI-0.9.1-macos-arm64.zip`, 153 MiB, for Apple Silicon Macs (M1 and newer) with macOS 12 or newer: cloud models, agent, character and voice input. There are no local models on Mac because the engine needs an NVIDIA GPU. The app isn't signed by Apple yet, so run `xattr -dr com.apple.quarantine /Applications/RAMVI.app` once, or try to open it and then go to System Settings → Privacy & Security → Open Anyway.
 
 ### System requirements for Windows
 
