@@ -88,7 +88,16 @@
 
 ## Обновления
 
-Обновления подписаны ключом выпуска (Ed25519), поэтому неподписанный или изменённый пакет не установится. Если новая версия не запустится, RAMVI сам вернётся к прежней. Чаты, модели и настройки при обновлении остаются на месте.
+Как перейти на новую версию (например, с 0.9.0 на 0.9.1):
+
+1. Закройте RAMVI полностью: если персонаж работает в фоне — значок в трее → «Выйти».
+2. Распакуйте новый архив в **новую** папку, не поверх старой.
+3. Скопируйте из старой папки RAMVI в новую папку `data` (чаты, память персонажа), файл `settings.json` (если он есть) и папку `models` (скачанные модели). Если в настройках указаны свои папки данных или моделей, копировать их не нужно.
+4. Запустите `RAMVI.exe` из новой папки, проверьте, что чаты на месте, и удалите старую папку.
+
+Модели, подключённые из папки Ollama или из другого места на диске, остаются на месте. На Mac данные лежат внутри программы: перед заменой откройте старую `RAMVI.app` через «Показать содержимое пакета» и перенесите `Contents/Resources/data` и `settings.json` в новую.
+
+Встроенная установка обновления из файла («Настройки» → «Общие» → «Обновления») проверяет подпись ключом выпуска (Ed25519) и при неудаче возвращает прежнюю версию, но пока не обновляет саму программу-оболочку, поэтому для 0.9.1 нужен способ выше.
 
 ## Исходный код
 
@@ -138,6 +147,10 @@ Download the ZIP from [Releases](https://github.com/karabilo214/RAMVI/releases/l
 ### Benchmarks
 
 RTX 5060 Laptop (8 GB), 16 GB RAM, the same 30 mixed prompts, up to 200 tokens, temperature 0, measured on the same day as Ollama 0.40.13. Qwen3-14B Q4_K_M (larger than VRAM) with a Qwen3-0.6B draft model: RAMVI 8.17 tok/s, Ollama 6.17 tok/s (RAMVI was faster on 22 of 30 prompts). Qwen3-8B fully in VRAM: RAMVI 0.8.0 34.2, 0.9.0 56.6, Ollama 62.7 tok/s. Ollama gives the first token faster in both cases.
+
+### Updating
+
+Close RAMVI completely (tray → Exit), unzip the new version into a **new** folder, copy the `data` folder, `settings.json` (if present) and the `models` folder from the old RAMVI folder into the new one, start the new `RAMVI.exe` and delete the old folder once your chats are there. Models linked from the Ollama folder or elsewhere stay where they are. On Mac the data is inside the app: copy `Contents/Resources/data` and `settings.json` from the old `RAMVI.app` (Show Package Contents) into the new one. The built-in "install update from file" does not update the shell yet.
 
 ### Source code
 
